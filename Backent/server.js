@@ -1,14 +1,13 @@
-import express from "express"
+import { app } from "./app.js";
+import { DataServer } from "./data/dataserver.js";
 
 
-
-const app = express()
-
-
-app.get('/',(req, res) => {
-    res.send('hello world')
-})
-
-app.listen(5000, () => {
+app.listen(process.env.PORT, () => {
     console.log('server is running on port: 5000')
-})
+}) 
+
+
+
+
+// database 
+DataServer()
