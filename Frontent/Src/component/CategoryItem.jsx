@@ -2,18 +2,51 @@ import { View, Text, ScrollView, Dimensions, TouchableOpacity } from 'react-nati
 import React, { useState } from 'react'
 import { Button } from 'react-native-paper'
 import {scale, moderateScale, verticalScale} from "react-native-size-matters"
+import { Image } from 'react-native'
 
 
-
-const categories = [
-    { category: "footbal", _id: "1" },
-    { category: "ball", _id: "2" },
-    { category: "baT", _id: "3" },
-    { category: "copy", _id: "4" },
-    { category: "book", _id: "5" },
-    { category: "bag", _id: "6" },
-    { category: "mobile", _id: "7" },
-  ]
+const Categories = [
+  {
+    _id:"doirere",
+    img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1uenD_Xlrb9YWq5JHjQsUNt_2ZMFmWgKiW2SBAcJjhYfgW3cqcOb1f27RuyfxplBJR_w&usqp=CAU",
+    text:"Prime"  
+  },
+  {
+    _id:"doireredf",
+    img:"https://w7.pngwing.com/pngs/599/150/png-transparent-iphone-x-front-view-apple%E6%89%8B%E6%9C%BA-iphone-intelligent-mobile-phone-thumbnail.png",
+    text:"Mobile"  
+  },
+  {
+    _id:"doirerdree",
+    img:"https://w7.pngwing.com/pngs/601/908/png-transparent-computer-icons-clothing-accessories-tracksuit-others-miscellaneous-white-text.png",
+    text:"Fashion"  
+  },
+  {
+    _id:"doirerree",
+    img:"https://toppng.com/uploads/preview/stationery-items-11563032393ndpkgtgfyc.png",
+    text:"Stationary"  
+  },
+  {
+    _id:"doiresre",
+    img:"https://w7.pngwing.com/pngs/203/682/png-transparent-black-and-gray-wireless-headphones-illustration-microphone-headphones-headset-headphone-icon-gadget-electronic-device-audio-equipment.png",
+    text:"Electronics"  
+  },
+  {
+    _id:"doidaerere",
+    img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0F3CmVrCoZ-Rl_14qAHSgIEa8HZLpo80eOQ&usqp=CAU",
+    text:"Travel"  
+  },
+  {
+    _id:"doiredaere",
+    img:"https://w7.pngwing.com/pngs/54/626/png-transparent-home-appliance-home-appliance-washing-machine-rice-cooker-refrigerator-home-appliances-kitchen-furniture-service.png",
+    text:"Home"  
+  },
+  {
+    _id:"doirdaere",
+    img:"https://w7.pngwing.com/pngs/102/117/png-transparent-assorted-fruits-display-fruit-fruit-natural-foods-frutti-di-bosco-image-file-formats-thumbnail.png",
+    text:"Fresh"  
+  },
+]
   
 
 const CategoryHeight = Dimensions.get("window").width
@@ -26,49 +59,32 @@ const CategoryItem = () => {
 
   return (
     
-       <View style={{
-          flexDirection: 'row',
-          bottom:verticalScale(400),
-         
-          height:scale(50),
-          justifyContent:'center'
-        }}>
-          <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ alignItems: 'center' }}>
-            {
-              categories.map((item, index) => (
+      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+        {
+          Categories.map((item) => (
+            <View style={{
+              flexDirection:'column',
+              padding:10,
+              alignItems:'center'
+             
+            }}>
+              <Image 
+              source={{ uri: item.img}}
+              style={{
+                height:50,
+                width:50,
+                backgroundColor:'grey',
+                resizeMode:"cover",
                 
-                 
-                <TouchableOpacity
-                onPress={() => categoryButtonHandler(item._id)}
-                style={{
-                    margin:10,
-                    backgroundColor: category === item._id ? "green" : 'white',
-                    height:moderateScale(30),
-                    width:moderateScale(80),
-                    alignSelf:'center',
-                    alignContent:'center',
-                    justifyContent:'center',
-                    flexDirection:'row',
-                    marginLeft:10,
-                    borderRadius:10
-                }}>
-                    <Text style={{
-                        color: category === item._id ? "white" : 'black',
-                        fontWeight:'bold',
-                        fontSize:moderateScale(15),
-                        textAlign:'center',
-                        alignSelf:'center'
-                        
-                        
-                    }}>
-                        {item.category}
-                    </Text>
-                </TouchableOpacity>
-              ))
-            }
-          </ScrollView>
-
-        </View>
+                
+              }}
+              />
+              <Text>{item.text}</Text>
+            </View>
+          ))
+        }
+        
+      </ScrollView>
     
   )
 }

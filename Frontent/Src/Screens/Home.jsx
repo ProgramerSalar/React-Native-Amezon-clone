@@ -6,6 +6,8 @@ import CategoryItem from '../component/CategoryItem'
 import {scale, moderateScale, verticalScale} from "react-native-size-matters"
 import ProductList from '../component/ProductList'
 import { useNavigation } from '@react-navigation/native'
+import DeliveryAddressCard from '../component/DeliveryAddressCard'
+import RecentSerchData from '../component/RecentSerchData'
 
 
 
@@ -155,13 +157,17 @@ const Home = () => {
     backgroundColor:'white'
    }}>
     <Heading />
-    <ScrollView>
-    <CarouselImage />
+    <DeliveryAddressCard />
+
+    <ScrollView showsVerticalScrollIndicator={false}>
+  
     <CategoryItem />
+    <CarouselImage />
+    
 
 
 <View style={{
-  top:verticalScale(-390),
+  // top:verticalScale(-90),
   flex:1
 
 }}>
