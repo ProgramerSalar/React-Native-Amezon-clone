@@ -47,8 +47,18 @@ export const newProduct = async (req, res, next) => {
 
 export const getAllProduct = async (req, res, next) => {
     
+    const { keyword, category } = req.query;  
     const products = await Product.find({
-        
+      name: {
+        $regex: keyword ? keyword : "",
+        $options: "i",
+      },
+      category: category ? category : undefined,
+    });
+  
+    res.status(200).json({
+      success: true,
+      products,
     })
 
 }
